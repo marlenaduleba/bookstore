@@ -1,7 +1,7 @@
 {
-  "name": "promises",
+  "name": "bookstore",
   "version": "1.0.0",
-  "description": "Implementations of various Promise functions in Node.js, including promiseAll, promiseAllSettled, chainPromises, and promisify",
+  "description": "A Node.js application simulating the functioning of an online bookstore. Implements classes for managing books, users, shopping carts, and orders.",
   "scripts": {
     "test": "jest"
   },
