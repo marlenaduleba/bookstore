@@ -1,122 +1,69 @@
-## Homework 7: Promises
+## Homework 8: Classes
 
-### Task 1: Implement `promiseAll` Function
-Your task is to implement a function called `promiseAll` that mimics the behavior of `Promise.all()`. The function should accept an array of promises and return a single promise that resolves to an array of resolved values or rejects with the reason of the first rejected promise.
+### Task
 
-**Instructions**
+Design and implement an object-oriented program in JavaScript to simulate the functioning of an online bookstore. This assignment will test your understanding of classes, encapsulation, inheritance, and polymorphism.
 
-1. Implement a function called `promiseAll` that takes an array of promises as an argument.
-2. The function should return a new promise that resolves when all promises in the input array have resolved, and rejects if any of the promises reject.
-3. If all promises resolve, the resolved value of the returned promise should be an array containing the resolved values of the input promises, in the same order.
-4. If any promise rejects, the returned promise should reject with the reason of the first rejected promise.
+### **Part 1: Class Design**
 
-**Example**
-```javascript
-const promises = [
-  Promise.resolve(1),
-  Promise.resolve(2),
-  Promise.resolve(3)
-];
+1. **Book Class**: Create a class called `Book` to represent individual books. Each book should have properties like title, author, ISBN, price, and availability.
+2. **User Class**: Create a class called `User` to represent users of the bookstore. Users should have properties like name, email, and a unique user ID.
+3. **Cart Class**: Design a class called `Cart` to simulate a shopping cart. It should have methods to add books, remove books, and calculate the total price of the books in the cart.
+4. **Order Class**: Create an `Order` class to represent a user's order. It should include information about the user, the books ordered, and the total price.
 
-promiseAll(promises)
-  .then(results => {
-    console.log("All promises resolved:", results); // Expected: [1, 2, 3]
-  })
-  .catch(error => {
-    console.error("At least one promise rejected:", error);
-  });
-```
+### **Part 2: Implementation**
 
-### Task 2: mplement `promiseAllSettled` Function
-Your task is to implement a function called `promiseAllSettled` that mimics the behavior of `Promise.allSettled()`. The function should accept an array of promises and return a promise that resolves to an array of objects representing the settlement of each promise.
+1. **Create Objects**: Instantiate multiple `Book` objects, representing different books available in the bookstore. Also, create a few `User` objects.
+2. **Add Books to Cart**: Simulate users adding books to their cart by creating instances of the `Cart` class and using its methods.
+3. **Place Orders**: Implement the process of placing an order. Users should be able to create instances of the `Order` class, specifying the books they want to purchase.
 
-**Instructions**
+### **Part 3: Demonstration**
 
-1. Implement a function called `promiseAllSettled` that takes an array of promises as an argument.
-2. The function should return a new promise that resolves with an array of objects representing the settlement of each promise in the input array.
-3. Each object in the resolved array should have properties `status` and `value` or `reason`. The `status` can be either `'fulfilled'` or `'rejected'`, and `value` should hold the resolved value (if fulfilled) or `reason` should hold the rejection reason (if rejected).
+1. **Create a Scenario**: Design a scenario where users browse books, add them to their carts, and place orders. Simulate interactions between users, carts, and orders.
+2. **Interaction**: Demonstrate how objects of different classes interact with each other. For example, a user interacts with a cart, and a cart interacts with orders.
+3. **Polymorphism**: Utilize polymorphism by treating different types of books (e.g., fiction, non-fiction) uniformly when users add them to the cart.
 
-**Example**
-```javascript
-const promises = [
-  Promise.resolve(1),
-  Promise.reject("Error occurred"),
-  Promise.resolve(3)
-];
+### **Part 4: Documentation**
 
-promiseAllSettled(promises)
-  .then(results => {
-    console.log("All promises settled:", results);
-    // Expected: [{ status: 'fulfilled', value: 1 },
-    //            { status: 'rejected', reason: 'Error occurred' },
-    //            { status: 'fulfilled', value: 3 }]
-  });
-```
-### Task 3: Implement Chaining of Promises as a Separate Function
-Your task is to implement a function called `chainPromises` that facilitates chaining of promises. The function should accept an array of functions that return promises and execute them sequentially.
+1. **Documentation**: Provide clear and concise comments and documentation for your code. Explain the purpose of each class, method, and property. Describe the interaction between different objects and how encapsulation is maintained.
 
-**Instructions**
+### **Submission**
 
-1. Implement a function called `chainPromises` that takes an array of functions as an argument.
-2. Each function in the array should return a promise.
-3. The `chainPromises` function should execute the functions sequentially, chaining the promises together.
-4. The returned promise should resolve with the value of the last resolved promise or reject with the reason of the first rejected promise.
+Submit your JavaScript program along with detailed documentation and comments that explain your code. Ensure that your code is well-structured and adheres to best practices in object-oriented programming.
 
-**Example**
-```javascript
-function asyncFunction1() {
-  return Promise.resolve("Result from asyncFunction1");
+### **Example**
+
+Here's a simplified example structure to give you an idea of what your code might look like:
+
+```jsx
+class Book {
+  constructor(title, author, isbn, price, availability) {
+    // Properties and methods...
+  }
 }
 
-function asyncFunction2(data) {
-  return Promise.resolve(data + " - Result from asyncFunction2");
+class User {
+  constructor(name, email, userId) {
+    // Properties and methods...
+  }
 }
 
-function asyncFunction3(data) {
-  return Promise.resolve(data + " - Result from asyncFunction3");
+class Cart {
+  constructor(user) {
+    // Properties and methods...
+  }
 }
 
-const functionsArray = [asyncFunction1, asyncFunction2, asyncFunction3];
+class Order {
+  constructor(user, books) {
+    // Properties and methods...
+  }
+}
 
-chainPromises(functionsArray)
-  .then(result => {
-    console.log("Chained promise result:", result);
-    // Expected: "Result from asyncFunction1 - Result from asyncFunction2 - Result from asyncFunction3"
-  })
-  .catch(error => {
-    console.error("Chained promise error:", error);
-  });
+// Instantiate objects and simulate bookstore interactions...
 ```
-### Task 4: Implement `promisify` Function
-Your task is to implement a function called `promisify` that converts a callback-style function into a function that returns a promise.
 
-**Instructions**
+### **Bonus (Optional)**
 
-1. Implement a function called `promisify` that takes a callback-style function as an argument.
-2. The `promisify` function should return a new function that returns a promise.
-3. The new function should execute the original callback-style function and resolve the promise with its result or reject the promise with any error encountered.
-
-**Example**
-
-```javascript
-function callbackStyleFunction(value, callback) {
-  setTimeout(() => {
-    if (value > 0) {
-      callback(null, value * 2);
-    } else {
-      callback("Invalid value", null);
-    }
-  }, 1000);
-}
-
-const promisedFunction = promisify(callbackStyleFunction);
-
-promisedFunction(3)
-  .then(result => {
-    console.log("Promised function result:", result); // Expected: 6
-  })
-  .catch(error => {
-    console.error("Promised function error:", error);
-  });
-```
+Implement additional features such as searching for books, applying discounts, handling payments, or integrating a database to store book and user information.
 
