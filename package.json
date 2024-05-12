@@ -1,0 +1,13 @@
+{
+  "name": "promises",
+  "version": "1.0.0",
+  "description": "Implementations of various Promise functions in Node.js, including promiseAll, promiseAllSettled, chainPromises, and promisify",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Marlena Dulęba",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
