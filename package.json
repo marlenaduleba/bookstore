@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test": "npx jest",
     "start": "node dist/index.js"
   },
   "author": "Marlena Dulęba",
