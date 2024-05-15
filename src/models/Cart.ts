@@ -7,16 +7,24 @@ class Cart {
   constructor(private user: User) {}
 
   addBook(book: Book): void {
-    this.books.push(book);
+    if (book.availability) {
+      this.books.push(book);
+  } else {
+      console.log(`Sorry, the book ${book.title} is currently unavailable.`);
+  }
   }
 
-  removeBook(book: Book): void {
-    this.books = this.books.filter((b) => b !== book);
-  }
+  removeBook(ISBN: string): void {
+    this.books = this.books.filter(book => book.ISBN !== ISBN);
+}
 
   calculateTotalPrice(): number {
     return this.books.reduce((total, book) => total + book.price, 0);
   }
+
+  getBooks(): Book[] {
+    return this.books;
+}
 }
 
 export default Cart;

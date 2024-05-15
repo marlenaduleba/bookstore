@@ -1,4 +1,4 @@
-import Book from '../src/Book';
+import Book from '../../src/models/Book';
 
 describe('Book', () => {
   it('should create an instance of Book', () => {
@@ -6,7 +6,7 @@ describe('Book', () => {
     expect(book).toBeInstanceOf(Book);
     expect(book.title).toBe('Test Title');
     expect(book.author).toBe('Test Author');
-    expect(book.isbn).toBe('1234567890');
+    expect(book.ISBN).toBe('1234567890');
     expect(book.price).toBe(29.99);
     expect(book.availability).toBe(true);
   });

@@ -1,4 +1,4 @@
-import User from '../src/User';
+import User from '../../src/models/User';
 
 describe('User', () => {
     it('should create a User with name, email, and userID', () => {
