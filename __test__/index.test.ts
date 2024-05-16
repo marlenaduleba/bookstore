@@ -1,4 +1,4 @@
-import {Book} from "../src/models/Book";
+import { Book } from "../src/models/Book";
 import User from "../src/models/User";
 import Cart from "../src/models/Cart";
 import Order from "../src/models/Order";
@@ -39,7 +39,7 @@ describe("index.ts", () => {
 
     // Checking the total price
     const totalPrice = cart.calculateTotalPrice();
-    expect(totalPrice).toBe(8.99); // Cena tylko jednej książki
+    expect(totalPrice).toBe(8.99); // Price for one book only
 
     // Creating an order
     const order = new Order(user, cart.getBooks());
