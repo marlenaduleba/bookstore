@@ -1,4 +1,4 @@
-import Book from "../src/models/Book";
+import {Book} from "../src/models/Book";
 import User from "../src/models/User";
 import Cart from "../src/models/Cart";
 import Order from "../src/models/Order";

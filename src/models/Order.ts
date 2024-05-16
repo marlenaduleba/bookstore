@@ -1,4 +1,4 @@
-import Book from "./Book.js";
+import {Book} from "./Book.js";
 import User from "./User.js";
 
 class Order {

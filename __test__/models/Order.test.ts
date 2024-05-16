@@ -1,5 +1,5 @@
 import Order from '../../src/models/Order';
-import Book from '../../src/models/Book';
+import {Book} from '../../src/models/Book';
 import User from '../../src/models/User';
 
 describe('Order', () => {

@@ -1,5 +1,5 @@
 import Cart from '../../src/models/Cart';
-import Book from '../../src/models/Book';
+import {Book} from '../../src/models/Book';
 import User from '../../src/models/User';
 
 describe('Cart', () => {

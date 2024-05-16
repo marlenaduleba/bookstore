@@ -1,4 +1,4 @@
-import Book from "./models/Book.js";
+import {Book, FictionBook, NonFictionBook} from "./models/Book.js";
 import User from "./models/User.js";
 import Cart from "./models/Cart.js";
 import Order from "./models/Order.js";
@@ -10,7 +10,7 @@ const book1 = new Book(
   10.99,
   true
 );
-const book2 = new Book("1984", "George Orwell", "2345678901", 8.99, true);
+const book2 = new FictionBook("The Lord of the Rings", "J.R.R. Tolkien", "978-0261102385", 10.99, true);
 const book3 = new Book(
   "To Kill a Mockingbird",
   "Harper Lee",
@@ -18,6 +18,8 @@ const book3 = new Book(
   12.99,
   false
 );
+const book4 = new NonFictionBook("A Brief History of Time", "Stephen Hawking", "978-0857501004", 15.95, true);
+
 
 const user1 = new User("Alice", "alice@example.com", "ISBN1");
 const user2 = new User("Bob", "bob@example.com", "ISBN2");
@@ -26,6 +28,7 @@ const cart1 = new Cart(user1);
 cart1.addBook(book1);
 cart1.addBook(book2);
 cart1.addBook(book3); // This book is unavailable
+cart1.addBook(book4)
 
 const cart2 = new Cart(user2);
 cart2.addBook(book2);
@@ -39,7 +42,7 @@ console.log(order2.getOrderSummary());
 function simulateBookstore() {
   console.log("Simulating bookstore interactions...");
 
-  const books = [book1, book2, book3];
+  const books = [book1, book2, book3, book4];
   const users = [user1, user2];
 
   users.forEach((user) => {
